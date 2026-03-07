@@ -36,7 +36,7 @@ export default function PrefecturePopulationChart({
   if (!ready) return null;
 
   return (
-    <div className="min-w-xl">
+    <div className="w-full">
       <Chart
         options={{
           xAxis: {

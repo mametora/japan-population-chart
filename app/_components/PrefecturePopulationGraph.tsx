@@ -92,9 +92,13 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
   );
 
   return (
-    <Card className="flex flex-col items-center justify-center gap-4">
-      {chartData.length !== 0 && (
+    <Card className="flex flex-col gap-4">
+      {chartData.length !== 0 ? (
         <PrefecturePopulationChart years={years} seriesData={chartData} />
+      ) : (
+        <div className="flex items-center justify-center py-16 text-gray-400 dark:text-gray-600">
+          <p>都道府県を選択してください</p>
+        </div>
       )}
       <Radio
         name="prefecture-population-group"

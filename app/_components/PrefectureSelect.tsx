@@ -28,7 +28,7 @@ export default function PrefectureSelect({
   return (
     <Card className="flex flex-col gap-4">
       <Typography variant="h2">都道府県</Typography>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 max-h-48 lg:max-h-none overflow-y-auto">
         {prefectures.map((prefecture) => (
           <Checkbox
             key={prefecture.id}

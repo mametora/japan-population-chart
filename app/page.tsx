@@ -7,8 +7,10 @@ export default async function Home() {
 
   return (
     <div className="font-sans">
-      <main className="flex min-h-screen flex-col items-center justify-start gap-5 p-24">
+      <header className="mx-auto max-w-6xl px-4 py-6 sm:px-8">
         <Typography variant="h1">Japan Population Chart</Typography>
+      </header>
+      <main className="mx-auto max-w-6xl w-full px-4 sm:px-8">
         <PrefecturePopulation prefectures={prefectures} />
       </main>
     </div>
