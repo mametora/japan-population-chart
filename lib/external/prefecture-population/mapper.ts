@@ -1,28 +1,9 @@
 import type {
   PrefectureApiResponse,
   PrefecturePopulationApiResponse,
+  Prefecture,
+  PrefecturePopulation,
 } from "@/lib/external/prefecture-population/types";
-
-type Prefecture = {
-  id: number;
-  name: string;
-};
-
-type Population = {
-  year: number;
-  value: number;
-  rate?: number;
-};
-
-type PopulationGroup = {
-  label: string;
-  populations: Population[];
-};
-
-type PrefecturePopulation = {
-  boundaryYear: number;
-  populationGroups: PopulationGroup[];
-};
 
 const toPrefectureModels = (response: PrefectureApiResponse): Prefecture[] => {
   return response.result.map((prefecture) => ({
@@ -43,9 +24,4 @@ const toPrefecturePopulationModel = (
   };
 };
 
-export {
-  toPrefectureModels,
-  toPrefecturePopulationModel,
-  type Prefecture,
-  type PrefecturePopulation,
-};
+export { toPrefectureModels, toPrefecturePopulationModel };

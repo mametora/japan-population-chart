@@ -21,4 +21,30 @@ type PrefecturePopulationApiResponse = {
   };
 };
 
-export type { PrefectureApiResponse, PrefecturePopulationApiResponse };
+type Prefecture = {
+  id: number;
+  name: string;
+};
+
+type Population = {
+  year: number;
+  value: number;
+  rate?: number;
+};
+
+type PopulationGroup = {
+  label: string;
+  populations: Population[];
+};
+
+type PrefecturePopulation = {
+  boundaryYear: number;
+  populationGroups: PopulationGroup[];
+};
+
+export type {
+  PrefectureApiResponse,
+  PrefecturePopulationApiResponse,
+  Prefecture,
+  PrefecturePopulation,
+};

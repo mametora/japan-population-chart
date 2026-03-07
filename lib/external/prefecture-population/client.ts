@@ -4,11 +4,11 @@ import { fetchJson } from "@/lib/http/fetcher";
 import {
   toPrefectureModels,
   toPrefecturePopulationModel,
-  type Prefecture,
-  type PrefecturePopulation,
 } from "@/lib/external/prefecture-population/mapper";
 import type {
+  Prefecture,
   PrefectureApiResponse,
+  PrefecturePopulation,
   PrefecturePopulationApiResponse,
 } from "@/lib/external/prefecture-population/types";
 
