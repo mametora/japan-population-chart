@@ -93,6 +93,9 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
 
   return (
     <Card className="flex flex-col items-center justify-center gap-4">
+      {chartData.length !== 0 && (
+        <PrefecturePopulationChart years={years} seriesData={chartData} />
+      )}
       <Radio
         name="prefecture-population-group"
         options={options}
@@ -100,9 +103,6 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
         onValueChange={setSelectedLabel}
         direction="horizontal"
       />
-      {chartData.length !== 0 && (
-        <PrefecturePopulationChart years={years} seriesData={chartData} />
-      )}
     </Card>
   );
 }
