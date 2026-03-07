@@ -21,7 +21,7 @@ const initHighcharts = async () => {
   await import("highcharts/themes/adaptive");
   setHighcharts(Highcharts);
   initialized = true;
-}
+};
 
 export default function PrefecturePopulationChart({
   years,
@@ -61,7 +61,7 @@ export default function PrefecturePopulationChart({
             },
           },
           accessibility: {
-            enabled: false
+            enabled: false,
           },
         }}
       >
