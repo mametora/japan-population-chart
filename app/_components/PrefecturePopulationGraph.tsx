@@ -12,13 +12,12 @@ import {
 import Radio from "@/components/ui/Radio";
 import PrefecturePopulationChart from "@/app/_components/PrefecturePopulationChart";
 import Card from "@/components/ui/Card";
+import convertPopulationToChartData, {
+  type Population,
+} from "@/app/_components/convertPopulationToChartData";
 
 type Props = {
   prefectures: Prefecture[];
-};
-
-type Population = {
-  [year: number]: PrefecturePopulation;
 };
 
 const fetchPopulation = async (id: number) => {
@@ -28,33 +27,6 @@ const fetchPopulation = async (id: number) => {
     throw new Error(`Failed to fetch population for prefecture ${id}`);
 
   return response.json() as Promise<PrefecturePopulation>;
-};
-
-const convertPopulationToChartData = (
-  prefectures: Prefecture[],
-  population: Population,
-  label: PopulationGroupLabel,
-) => {
-  const years = Array.from(
-    new Set(
-      prefectures.flatMap(
-        (prefecture) =>
-          population[prefecture.id]?.populationGroups
-            .find((group) => group.label === label)
-            ?.populations.map((population) => population.year) ?? [],
-      ),
-    ),
-  ).sort((a, b) => a - b);
-
-  const chartData = prefectures.map((prefecture) => ({
-    name: prefecture.name,
-    data:
-      population[prefecture.id]?.populationGroups
-        .find((group) => group.label === label)
-        ?.populations.map((population) => population.value) ?? [],
-  }));
-
-  return { years, chartData };
 };
 
 export default function PrefecturePopulationGraph({ prefectures }: Props) {
