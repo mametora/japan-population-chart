@@ -1,3 +1,5 @@
+import { PopulationGroupLabel } from "@/lib/external/prefecture-population/constants";
+
 type PrefectureApiResponse = {
   message: string | null;
   result: {
@@ -11,7 +13,7 @@ type PrefecturePopulationApiResponse = {
   result: {
     boundaryYear: number;
     data: {
-      label: string;
+      label: PopulationGroupLabel;
       data: {
         year: number;
         value: number;
@@ -33,7 +35,7 @@ type Population = {
 };
 
 type PopulationGroup = {
-  label: string;
+  label: PopulationGroupLabel;
   populations: Population[];
 };
 

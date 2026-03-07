@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@highcharts/react':
+        specifier: ^4.2.1
+        version: 4.2.1(@types/react@19.2.14)(highcharts@12.5.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@next/env':
         specifier: ^16.1.6
         version: 16.1.6
+      highcharts:
+        specifier: ^12.5.0
+        version: 12.5.0
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -332,6 +338,17 @@ packages:
   '@eslint/plugin-kit@0.4.1':
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@highcharts/react@4.2.1':
+    resolution: {integrity: sha512-ytHN0EsnT0AtmWBbQ7JHSDmNC+ionSsXrru2X1oxeFGKlKe7XU1vbhohG5bHIU+4Oao5Y6ug6920Big8FMZpoQ==}
+    peerDependencies:
+      '@types/react': '>=18'
+      highcharts: '>=12.0.0'
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1832,6 +1849,17 @@ packages:
 
   hermes-parser@0.25.1:
     resolution: {integrity: sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==}
+
+  highcharts@12.5.0:
+    resolution: {integrity: sha512-uNSSv1KqRLNvkyXlf1FbeGWB1mJ/8/IYpVeqYiTIop5Wo8peUvNyzUfLa58vILsmXyz+XrETtgKIEOcSgBBKuQ==}
+    peerDependencies:
+      jspdf: ^3.0.0
+      svg2pdf.js: ^2.6.0
+    peerDependenciesMeta:
+      jspdf:
+        optional: true
+      svg2pdf.js:
+        optional: true
 
   html-encoding-sniffer@4.0.0:
     resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}
@@ -3435,6 +3463,14 @@ snapshots:
     dependencies:
       '@eslint/core': 0.17.0
       levn: 0.4.1
+
+  '@highcharts/react@4.2.1(@types/react@19.2.14)(highcharts@12.5.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      highcharts: 12.5.0
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
+    optionalDependencies:
+      '@types/react': 19.2.14
 
   '@humanfs/core@0.19.1': {}
 
@@ -5101,6 +5137,8 @@ snapshots:
   hermes-parser@0.25.1:
     dependencies:
       hermes-estree: 0.25.1
+
+  highcharts@12.5.0: {}
 
   html-encoding-sniffer@4.0.0:
     dependencies:

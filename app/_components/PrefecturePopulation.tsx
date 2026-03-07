@@ -14,6 +14,10 @@ export default function PrefecturePopulation({ prefectures }: Props) {
     [],
   );
 
+  const selectedPrefectures = prefectures.filter((prefecture) =>
+    selectedPrefectureIds.includes(prefecture.id),
+  );
+
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <PrefectureSelect
@@ -21,6 +25,7 @@ export default function PrefecturePopulation({ prefectures }: Props) {
         selectedPrefectureIds={selectedPrefectureIds}
         setSelectedPrefectureIds={setSelectedPrefectureIds}
       />
+      <PrefecturePopulationGraph prefectures={selectedPrefectures} />
     </div>
   );
 }
