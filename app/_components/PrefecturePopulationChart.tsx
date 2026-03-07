@@ -1,9 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Chart, Series, Title, setHighcharts } from "@highcharts/react";
-import Highcharts from "highcharts";
-import "highcharts/themes/adaptive";
-setHighcharts(Highcharts);
+import Highcharts from "highcharts/highcharts";
 
 type SeriesData = {
   name: string;
@@ -15,10 +14,27 @@ type Props = {
   seriesData: SeriesData[];
 };
 
+let initialized = false;
+
+const initHighcharts = async () => {
+  if (initialized) return;
+  await import("highcharts/themes/adaptive");
+  setHighcharts(Highcharts);
+  initialized = true;
+}
+
 export default function PrefecturePopulationChart({
   years,
   seriesData,
 }: Props) {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    initHighcharts().then(() => setReady(true));
+  }, []);
+
+  if (!ready) return null;
+
   return (
     <div className="min-w-xl">
       <Chart
