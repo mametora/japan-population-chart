@@ -11,6 +11,7 @@ import {
 } from "@/lib/external/prefecture-population/constants";
 import Radio from "@/components/ui/Radio";
 import PrefecturePopulationChart from "@/app/_components/PrefecturePopulationChart";
+import Card from "@/components/ui/Card";
 
 type Props = {
   prefectures: Prefecture[];
@@ -91,7 +92,7 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <Card className="flex flex-col items-center justify-center gap-4">
       <Radio
         name="prefecture-population-group"
         options={options}
@@ -102,6 +103,6 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
       {chartData.length !== 0 && (
         <PrefecturePopulationChart years={years} seriesData={chartData} />
       )}
-    </div>
+    </Card>
   );
 }

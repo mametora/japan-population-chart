@@ -2,6 +2,7 @@ import Typography from "@/components/ui/Typography";
 import Checkbox from "@/components/ui/Checkbox";
 import { Dispatch, SetStateAction } from "react";
 import type { Prefecture } from "@/lib/external/prefecture-population/types";
+import Card from "@/components/ui/Card";
 
 type Props = {
   prefectures: Prefecture[];
@@ -25,7 +26,7 @@ export default function PrefectureSelect({
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <Card className="flex flex-col gap-4">
       <Typography variant="h2">都道府県</Typography>
       <div className="grid grid-cols-4 gap-4">
         {prefectures.map((prefecture) => (
@@ -39,6 +40,6 @@ export default function PrefectureSelect({
           />
         ))}
       </div>
-    </div>
+    </Card>
   );
 }
