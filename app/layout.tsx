@@ -9,7 +9,8 @@ const notoSansJp = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: "Japan Population Chart",
-  description: "Visualize Japan’s population composition by prefecture using interactive line charts.",
+  description:
+    "Visualize Japan’s population composition by prefecture using interactive line charts.",
 };
 
 export default function RootLayout({
@@ -19,11 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${notoSansJp.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${notoSansJp.variable} antialiased`}>{children}</body>
     </html>
   );
 }
