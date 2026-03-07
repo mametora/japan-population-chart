@@ -36,19 +36,21 @@ const convertPopulationToChartData = (
 ) => {
   const years = Array.from(
     new Set(
-      prefectures.flatMap((prefecture) =>
-        population[prefecture.id]?.populationGroups
-          .find((group) => group.label === label)
-          ?.populations.map((population) => population.year) ?? [],
+      prefectures.flatMap(
+        (prefecture) =>
+          population[prefecture.id]?.populationGroups
+            .find((group) => group.label === label)
+            ?.populations.map((population) => population.year) ?? [],
       ),
     ),
   ).sort((a, b) => a - b);
 
   const chartData = prefectures.map((prefecture) => ({
     name: prefecture.name,
-    data: population[prefecture.id]?.populationGroups
-      .find((group) => group.label === label)
-      ?.populations.map((population) => population.value) ?? [],
+    data:
+      population[prefecture.id]?.populationGroups
+        .find((group) => group.label === label)
+        ?.populations.map((population) => population.value) ?? [],
   }));
 
   return { years, chartData };
@@ -85,7 +87,7 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
   const { years, chartData } = convertPopulationToChartData(
     prefectures,
     population,
-    selectedLabel
+    selectedLabel,
   );
 
   return (
