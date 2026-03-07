@@ -60,6 +60,9 @@ export default function PrefecturePopulationChart({
               },
             },
           },
+          accessibility: {
+            enabled: false
+          },
         }}
       >
         <Title>都道府県別 人口推移</Title>
