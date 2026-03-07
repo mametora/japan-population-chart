@@ -4,7 +4,7 @@ import type {
 } from "@/lib/external/prefecture-population/types";
 
 type Prefecture = {
-  code: number;
+  id: number;
   name: string;
 };
 
@@ -26,7 +26,7 @@ type PrefecturePopulation = {
 
 const toPrefectureModels = (response: PrefectureApiResponse): Prefecture[] => {
   return response.result.map((prefecture) => ({
-    code: prefecture.prefCode,
+    id: prefecture.prefCode,
     name: prefecture.prefName,
   }));
 };
