@@ -9,12 +9,12 @@ import {
   POPULATION_GROUP_LABEL,
   PopulationGroupLabel,
 } from "@/lib/external/prefecture-population/constants";
-import Radio from "@/components/ui/Radio";
 import PrefecturePopulationChart from "@/app/_components/PrefecturePopulationChart";
 import Card from "@/components/ui/Card";
 import convertPopulationToChartData, {
   type Population,
 } from "@/app/_components/convertPopulationToChartData";
+import ToggleGroup from "@/components/ui/ToggleGroup";
 
 type Props = {
   prefectures: Prefecture[];
@@ -37,6 +37,12 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
     POPULATION_GROUP_LABEL[0],
   );
 
+  const handleValueChange = (value: PopulationGroupLabel) => {
+    if (!value) return;
+
+    setSelectedLabel(value);
+  };
+
   useEffect(() => {
     prefectures.forEach(async ({ id }) => {
       if (fetchedRef.current.has(id)) return;
@@ -54,11 +60,6 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
     });
   }, [prefectures]);
 
-  const options = POPULATION_GROUP_LABEL.map((label) => ({
-    value: label,
-    label: label,
-  }));
-
   const { years, chartData } = convertPopulationToChartData(
     prefectures,
     population,
@@ -66,7 +67,7 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
   );
 
   return (
-    <Card className="flex flex-col gap-4">
+    <Card className="flex flex-col items-center gap-4">
       {chartData.length !== 0 ? (
         <PrefecturePopulationChart years={years} seriesData={chartData} />
       ) : (
@@ -74,13 +75,14 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
           <p>都道府県を選択してください</p>
         </div>
       )}
-      <Radio
-        name="prefecture-population-group"
-        options={options}
-        value={selectedLabel}
-        onValueChange={setSelectedLabel}
-        direction="horizontal"
-      />
+      <div>
+        <ToggleGroup
+          type="single"
+          options={POPULATION_GROUP_LABEL}
+          value={selectedLabel}
+          onValueChange={handleValueChange}
+        />
+      </div>
     </Card>
   );
 }
