@@ -41,10 +41,10 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
     prefectures.forEach(async ({ id }) => {
       if (fetchedRef.current.has(id)) return;
 
-      fetchedRef.current.add(id);
       try {
         const data = await fetchPopulation(id);
         setPopulation((prev) => ({ ...prev, [id]: data }));
+        fetchedRef.current.add(id);
       } catch (error) {
         console.error(
           `Failed to fetch population for prefecture ${id}:`,
