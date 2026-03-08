@@ -19,7 +19,7 @@ export default function PrefecturePopulation({ prefectures }: Props) {
   );
 
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col gap-4 sm:gap-8 w-full">
       <PrefectureSelect
         prefectures={prefectures}
         selectedPrefectureIds={selectedPrefectureIds}
