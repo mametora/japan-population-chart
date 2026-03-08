@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Chart, Series, Title, setHighcharts } from "@highcharts/react";
-import Highcharts from "highcharts/highcharts";
+import { Accessibility } from "@highcharts/react/options/Accessibility";
+import Highcharts from "highcharts/highcharts.src";
 
 type SeriesData = {
   name: string;
@@ -19,6 +20,7 @@ let initialized = false;
 const initHighcharts = async () => {
   if (initialized) return;
   await import("highcharts/themes/adaptive");
+  await import("highcharts/modules/accessibility");
   setHighcharts(Highcharts);
   initialized = true;
 };
@@ -60,9 +62,6 @@ export default function PrefecturePopulationChart({
               },
             },
           },
-          accessibility: {
-            enabled: false,
-          },
         }}
       >
         <Title>都道府県別 人口推移</Title>
@@ -76,6 +75,7 @@ export default function PrefecturePopulationChart({
             }}
           />
         ))}
+        <Accessibility enabled={true} description="都道府県別 人口推移" />
       </Chart>
     </div>
   );
