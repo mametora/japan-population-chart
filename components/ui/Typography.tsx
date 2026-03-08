@@ -23,7 +23,7 @@ const Typography = ({ as, variant = "p", className, children }: Props) => {
   const Component = as || variant;
 
   return (
-    <Component className={`${styles[variant]} ${className}`}>
+    <Component className={`${styles[variant]} ${className ?? ""}`}>
       {children}
     </Component>
   );
