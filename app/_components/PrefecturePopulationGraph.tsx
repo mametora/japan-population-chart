@@ -42,8 +42,15 @@ export default function PrefecturePopulationGraph({ prefectures }: Props) {
       if (fetchedRef.current.has(id)) return;
 
       fetchedRef.current.add(id);
-      const data = await fetchPopulation(id);
-      setPopulation((prev) => ({ ...prev, [id]: data }));
+      try {
+        const data = await fetchPopulation(id);
+        setPopulation((prev) => ({ ...prev, [id]: data }));
+      } catch (error) {
+        console.error(
+          `Failed to fetch population for prefecture ${id}:`,
+          error,
+        );
+      }
     });
   }, [prefectures]);
 
