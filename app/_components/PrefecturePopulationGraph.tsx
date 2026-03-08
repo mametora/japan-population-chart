@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Prefecture,
   PrefecturePopulation,
@@ -31,26 +31,21 @@ const fetchPopulation = async (id: number) => {
 
 export default function PrefecturePopulationGraph({ prefectures }: Props) {
   const [population, setPopulation] = useState<Population>({});
+  const fetchedRef = useRef<Set<number>>(new Set());
+
   const [selectedLabel, setSelectedLabel] = useState<PopulationGroupLabel>(
     POPULATION_GROUP_LABEL[0],
   );
 
   useEffect(() => {
-    const missingPopulation = prefectures.filter(
-      ({ id }) => !(id in population),
-    );
+    prefectures.forEach(async ({ id }) => {
+      if (fetchedRef.current.has(id)) return;
 
-    if (missingPopulation.length === 0) return;
-
-    missingPopulation.forEach(async ({ id }) => {
-      const prefecturePopulation = await fetchPopulation(id);
-
-      setPopulation((prev) => ({
-        ...prev,
-        [id]: prefecturePopulation,
-      }));
+      fetchedRef.current.add(id);
+      const data = await fetchPopulation(id);
+      setPopulation((prev) => ({ ...prev, [id]: data }));
     });
-  }, [prefectures, population]);
+  }, [prefectures]);
 
   const options = POPULATION_GROUP_LABEL.map((label) => ({
     value: label,
