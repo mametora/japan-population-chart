@@ -20,6 +20,7 @@ let initialized = false;
 const initHighcharts = async () => {
   if (initialized) return;
   await import("highcharts/themes/adaptive");
+  await import("highcharts/modules/no-data-to-display");
   await import("highcharts/modules/accessibility");
   setHighcharts(Highcharts);
   initialized = true;
@@ -54,6 +55,9 @@ export default function PrefecturePopulationChart({
           },
           legend: {
             enabled: true,
+          },
+          lang: {
+            noData: "都道府県を選択してください",
           },
           plotOptions: {
             series: {

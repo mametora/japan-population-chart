@@ -8,16 +8,16 @@
 
 ## 技術スタック
 
-| カテゴリ | 技術 |
-| --- | --- |
-| フレームワーク | [Next.js](https://nextjs.org/) (App Router) |
-| 言語 | TypeScript |
-| スタイリング | [Tailwind CSS](https://tailwindcss.com/) |
-| UI コンポーネント | [Radix UI](https://www.radix-ui.com/) |
-| グラフ描画 | [Highcharts](https://www.highcharts.com/) |
-| テスト | [Jest](https://jestjs.io/) / [Testing Library](https://testing-library.com/) |
-| リンター / フォーマッター | ESLint / Prettier |
-| パッケージマネージャー | pnpm |
+| カテゴリ                  | 技術                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| フレームワーク            | [Next.js](https://nextjs.org/) (App Router)                                  |
+| 言語                      | TypeScript                                                                   |
+| スタイリング              | [Tailwind CSS](https://tailwindcss.com/)                                     |
+| UI コンポーネント         | [Radix UI](https://www.radix-ui.com/)                                        |
+| グラフ描画                | [Highcharts](https://www.highcharts.com/)                                    |
+| テスト                    | [Jest](https://jestjs.io/) / [Testing Library](https://testing-library.com/) |
+| リンター / フォーマッター | ESLint / Prettier                                                            |
+| パッケージマネージャー    | pnpm                                                                         |
 
 ## セットアップ
 
