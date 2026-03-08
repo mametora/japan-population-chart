@@ -9,6 +9,8 @@ const buildEslintCommand = (filenames) =>
 const buildPrettierCommand = (filenames) =>
   `prettier --write ${joinFilenames(filenames)}`;
 
-export default {
+const config = {
   "*.{js,jsx,ts,tsx}": [buildEslintCommand, buildPrettierCommand],
 };
+
+export default config;
