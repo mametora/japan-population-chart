@@ -2,7 +2,7 @@ import convertPopulationToChartData, {
   type Population,
 } from "@/app/_components/convertPopulationToChartData";
 
-describe("toPrefectureModels", () => {
+describe("convertPopulationToChartData", () => {
   it("APIレスポンスをPrefecture[]に変換する", () => {
     const prefectures = [
       {
